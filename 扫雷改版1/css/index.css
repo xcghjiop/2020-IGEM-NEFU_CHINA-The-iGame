@@ -1,0 +1,180 @@
+.Hide{
+   position: absolute;
+   top: 1vw;
+   left: vw;
+   
+}
+
+.Hide a{
+    text-decoration: none;
+	color: #fff;
+	margin: 10px;
+    padding: 10px 20px;
+    background: #02a4ad;
+    border: none;
+ text-decoration: none;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+#text1{
+   color: aliceblue;
+}
+.butt{
+    display: none;
+}
+#gameBox2{
+    display: none;
+}
+#mine{
+    margin: 50px auto;
+} 
+.level{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.level button{
+    padding: 5px 15px;
+    background: #02a4ad;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+.level button.active{
+    background: #00abff;
+}
+
+table{
+    border-spacing: 1px;
+    background: #929196;
+    margin: 0 auto;
+}
+td{
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    /* 边框 */
+    border: 2px solid;
+    border-color: #fff #a1a1a1 #a1a1a1 #fff;
+
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+}
+td.zero{
+	border-color: #d9d9d9;
+    background: #d9d9d9;
+    
+}
+td.one{
+	border-color: #bdbdbd;
+	background:  #bdbdbd;
+	color:  #e6e4e4;
+}
+td.two{
+	border-color: #818181;
+	background: #818181;
+	color  :#e6e4e4;
+}
+td.three{
+	border-color: #5a5a5a;
+	background:  #5a5a5a;
+	color: #e6e4e4;
+}
+td.four{
+	border-color: #474747;
+	background:  #474747;
+	color:  #e6e4e4;
+}
+td.five{
+	border-color: #303030;
+	background: #303030;
+	color:   #e6e4e4;
+}
+td.six{
+	border-color: #242424;
+	background: #242424;
+	color:  #e6e4e4;
+}
+td.seven{
+	border-color: #181818;
+	background:  #181818;
+	color: #e6e4e4;
+}
+td.eight{
+	border-color: #0f0f0f;
+	background: #0f0f0f;
+	color:  #e6e4e4;
+}
+
+.info{
+    margin-top: 10px;
+    text-align: center;
+}
+.mine{
+    background: #d9d9d9 url(../images/mine.png) no-repeat center;
+    background-size: cover;
+}
+.flag{
+    background: #ccc url(../images/flag.png) no-repeat center;
+    background-size: cover;
+}
+
+			body {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+				background: #060c21;
+				font-family: 'Poppins', sans-serif;
+			}
+			.box {
+				position: absolute;
+                top: 5vw;
+                left: 3vw;
+				width: 300px;
+				height: 650px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: #060c21;
+			}
+			/* 用box的伪元素添加一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */
+			.box::before {
+				content: '';
+				position: absolute;
+				top: -2px;
+				left: -2px;
+				right: -2px;
+				bottom: -2px;
+				background: #fff;
+				z-index: -1;
+			}
+			/* 于上面类似,做一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */
+			.box::after {
+				content: '';
+				position: absolute;
+				top: -2px;
+				left: -2px;
+				right: -2px;
+				bottom: -2px;
+				background: #fff;
+				z-index: -2;
+				/* 滤镜属性  给图像设置高斯模糊。"radius"一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起，所以值越大越模糊；如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。 */
+				filter: blur(40px);
+			}
+			.box::before,
+			.box::after {
+				/* linear-gradient() 函数用于创建一个线性渐变的 "图像"。 参数1:用角度值指定渐变的方向（或角度）  12点钟方向为0deg*/
+				background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
+			}
+			.content {
+				padding: 20px;
+				box-sizing: border-box;
+				color: #fff;
+			}

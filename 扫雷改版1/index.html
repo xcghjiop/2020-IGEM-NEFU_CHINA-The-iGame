@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset="UTF-8">
+	<title></title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    
+    <div class="box">
+        <div class="content">
+            <h1>The rules of the game</h1>
+            <p>
+                1. Select different difficulty levels and press the "Start Game!" button to start the game.<br>
+                2. Click the gray block and the number displayed is the number of mines in the eight squares around it.<br>
+                3. You can determine the location of hidden mines by the number displayed and the color block depth (the deeper the more mines around), and right click to insert the red flag.<br>
+                4. You need to place red flags on as many potential mines as possible in the shortest amount of time. ​<br>
+                5. The game ends when you plant the last red flag or press the last gray square. Be sure to guess more mines before that.<br>
+                6. Press the "Restart" button to start the game. Remember to click the "Start Game!" button to start the game timer.<br>
+            </p>
+        </div>
+    </div>
+    <div class="Hide ">
+        <a href="javascript:Start();" >Start Game!</a>
+        <a href="javascript:showNumber();">ShowChallengers!</a>
+    </div>
+	<div id="mine">
+		<div class="level">
+            
+			<button class="active">Easy</button>
+			<button>Medium</button>
+			<button>Difficult</button>
+			<button >Restart</button>
+        </div>;
+		<div class="gameBox" id="gameBox2"></div>
+		<div class="info">
+			<div id="text1">The remaining bombs : <span class="mineNum"></span></div>
+			<div id="text1">Have flags ：<span class="surNum"></span></div>
+			<form >
+				<input type="text" id="time" value="00:00" style="margin-top: 4px;">
+				<div style="margin-top: 5px; "class="butt">
+					<input type="button" value="start">
+					<input type="button" value="stop">
+					<input type="button" value="reset">
+				</div>
+				
+			</form>
+		
+        </div>
+    </div>
+	<script src="js/index.js"></script>
+	
+	
+<script>
+
+    var oTxt=document.getElementsByTagName("input")[0];
+    var oStart=document.getElementsByTagName("input")[1];
+    var oStop=document.getElementsByTagName("input")[2];
+    var oReset=document.getElementsByTagName("input")[3];
+    var n= 0, timer=null;
+    //开始计时
+    oStart.onclick= function startTime() {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            n++;
+            var m=parseInt(n/60);
+            var s=parseInt(n%60);
+            oTxt.value=toDub(m)+":"+toDub(s);
+        },1000/60);
+    };
+    //暂停并且清空计时器
+    oStop.onclick= function () {
+        clearInterval(timer);
+    }
+    //重置
+    oReset.onclick= function () {
+        oTxt.value="00:00";
+        n=0;
+    }
+    //补零
+    function toDub(n){
+        return n<10?"0"+n:""+n;
+    }
+    
+</script>
+</body>
+</html>
